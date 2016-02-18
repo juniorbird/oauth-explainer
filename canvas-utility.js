@@ -88,3 +88,18 @@ function drawArrow(xstart, ystart, xend, yend, vorh, rorl, neworold) {
 
   ctx.stroke();
 }
+
+function loadGist(gistId) {
+  var element = document.getElementById('code');
+  var callbackName = "gist_callback";
+  window[callbackName] = function (gistData) {
+    delete window[callbackName];
+    var html = '<link rel="stylesheet" href="' + gistData.stylesheet + '"></link>';
+    html += gistData.div;
+    element.innerHTML = html;
+    script.parentNode.removeChild(script);
+  };
+  var script = document.createElement("script");
+  script.setAttribute("src", "https://gist.github.com/" + gistId + ".json?callback=" + callbackName);
+  document.body.appendChild(script);
+}

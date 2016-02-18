@@ -14,6 +14,9 @@ function advanceSlide() {
       labelItem(90, 510, 'Node.js', '#000');
       labelItem(850, 360, 'Slack', '#38795D');
 
+      document.getElementById('code').innerHTML = '<p>  </p>';
+
+
       // Lay out all our objects
       slide++;
       break;
@@ -26,6 +29,9 @@ function advanceSlide() {
       labelItem(140, 300, 'User requests auth', '#4A2218');
       drawArrow(180, 450, 800, 290, 'h', 'r', 'new');
       labelItem(500, 400, 'App passes ClientID', '#4A2218');
+
+      loadGist('658734574a8cc7c0d875');
+
       slide++;
       break;
 
@@ -43,6 +49,7 @@ function advanceSlide() {
       drawArrow(800, 290, 205, 120, 'h', 'l', 'new');
       labelItem(350, 150, 'Slack confirms auth', '#4A2218');
       drawBrowserControl(50, 50, 150, 170, 50, 30, 'green');
+
       slide++;
       break;
 
@@ -59,6 +66,8 @@ function advanceSlide() {
       labelItem(350, 150, 'User confirms auth', '#4A2218');
       drawArrow(800, 290, 180, 450, 'h', 'l', 'new');
       labelItem(500, 400, 'Slack passes one-time code', '#4A2218');
+
+      loadGist('3215c014203260536fa9');
 
       slide++;
       break;
@@ -79,6 +88,8 @@ function advanceSlide() {
       drawArrow(800, 310, 180, 470, 'h', 'l', 'new');
       labelItem(500, 420, 'Slack passes persistent token', '#4A2218');
 
+      loadGist('125d5b0bfc2489f402ce');
+
       slide++;
       break;
 
@@ -96,7 +107,11 @@ function advanceSlide() {
       drawArrow(180, 450, 800, 290, 'h', 'r', 'new');
       labelItem(500, 400, 'App uses token to make API call', '#4A2218');
 
+      slide++;
       break;
+
+    default:
+      return false;
   }
 }
 
