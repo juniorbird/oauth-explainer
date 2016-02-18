@@ -37,7 +37,7 @@ function drawBrowserControl(browserx, browsery, browserwidth, browserheight, con
   // First, clear what's in the browser
   let c = document.getElementById('oauthcanvas');
   let ctx = c.getContext('2d');
-  ctx.clearRect(browserx + 1, browsery + (browserheight / 10) + 1, browserwidth - 2, (browserheight * .9 - 2));
+  ctx.clearRect(browserx + 1, browsery + (browserheight / 10) + 1, browserwidth - 2, (browserheight * .9) - 27);
 
   ctx.fillStyle = color;
   let offsetx = (browserwidth - contwidth) / 2;
@@ -54,4 +54,37 @@ function labelItem(xpos, ypos, labelText, color) {
   ctx.font = '20px Helvetica';
   ctx.fillText(labelText, xpos, ypos);
 
+}
+
+function drawArrow(xstart, ystart, xend, yend, vorh, rorl, neworold) {
+  'use strict';
+
+  let c = document.getElementById('oauthcanvas');
+  let ctx = c.getContext('2d');
+  ctx.beginPath();
+  ctx.moveTo(xstart, ystart);
+  ctx.lineTo(xend, yend);
+
+  // Draw arrow head
+  if (vorh === 'v' && rorl === 'r') {
+    ctx.lineTo(xend - 20, yend - 20);
+    ctx.moveTo(xend + 20, yend - 20);
+    ctx.lineTo(xend, yend);
+  } else if (vorh === 'h' && rorl === 'l') {
+    ctx.lineTo(xend + 20, yend - 20);
+    ctx.moveTo(xend + 20, yend + 20);
+    ctx.lineTo(xend, yend);
+  } else if (vorh === 'h' && rorl === 'r') {
+    ctx.lineTo(xend - 20, yend - 20);
+    ctx.moveTo(xend - 20, yend + 20);
+    ctx.lineTo(xend, yend);
+  }
+
+  if (neworold === 'new') {
+    ctx.strokeStyle = '#4A2218';
+  } else {
+    ctx.strokeStyle = '#fff';
+  }
+
+  ctx.stroke();
 }
