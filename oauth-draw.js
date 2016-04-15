@@ -14,8 +14,6 @@ function advanceSlide() {
       labelItem(90, 510, 'Node.js', '#000');
       labelItem(850, 360, 'Slack', '#38795D');
 
-      document.getElementById('code').innerHTML = '<p>  </p>';
-
 
       // Lay out all our objects
       slide++;

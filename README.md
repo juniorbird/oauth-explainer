@@ -4,7 +4,7 @@ I had a good time learning about oAuth in my [Workdaybot Slack Project](https://
 
 ## Technologies
 
-I built this in SVG, because why not? It was a great exercise to learn all about drawing with Canvas.
+I built this in SVG, because why not? It was a great exercise to learn all about drawing with Canvas. It's also been fun to push to github pages!
 
 ## Keys & Security
 
